@@ -1,0 +1,69 @@
+Quarter-End Adjustments at Serendib Manufacturing (Pvt) Ltd
+Context: Serendib Manufacturing is a listed company in Sri Lanka producing industrial components. The company has just secured a large foreign investor. Quarterly earnings are expected to show a 12% growth.
+Two weeks before reporting:
+The CFO realizes that raw material wastage has increased due to machine inefficiencies.
+Recognizing the wastage will reduce profits by 8%.
+The CEO tells the Finance Manager:
+“Let’s classify part of this as capital improvement expense. It will smooth the numbers. Next quarter will compensate.”
+Additionally:
+The external audit firm has provided tax consultancy services to the company for the past 3 years.
+The CFO’s bonus is linked to EBITDA.
+The Finance Manager is on probation.
+Group Task:
+Section A – Identifying Issues
+Which CIMA Code of Ethics principles are at risk in this scenario? Explain why.
+Identify the ethical threats present (e.g., self-interest, intimidation, self-review). How do they appear?
+What could be the short-term and long-term consequences if the financial adjustments are manipulated?
+Section B – Evaluating Options
+What safeguards or actions could the Finance Manager take to maintain integrity while addressing CEO pressure?
+Should the Finance Manager follow the CEO’s instructions to capitalize expenses? Why or why not?
+How could the external auditor’s role affect the ethical decision-making process?
+Section C – Reflection
+How can professional competence and due care be maintained under pressure?
+If you were in the Finance Manager’s position, what would be your ethical course of action?
+What lessons can be learned for handling similar financial reporting dilemmas in Sri Lanka?
+Digital Lending and Data Transparency
+A Sri Lankan fintech company offering Buy Now Pay Later (BNPL) services uses AI-based credit scoring.
+Customers are not informed:
+That behavioral data from social media is analyzed.
+That algorithmic bias may disadvantage certain districts.
+That late fee structures are dynamic and personalized.
+The Head of Risk knows:
+The algorithm unfairly downgrades applicants from certain income clusters.
+The board argues:
+“This is how we manage default risk. It’s commercially necessary.”
+A management accountant in the firm must sign off on risk disclosure statements.
+Group Task:
+Section A – Identifying Issues
+Which CIMA ethical principles are at risk in this case? Explain how each is affected.
+Identify the ethical threats present (e.g., integrity threat, advocacy threat, self-interest).
+What are the potential consequences (legal, reputational, operational) of not disclosing algorithmic bias to customers?
+Section B – Evaluating Options
+Should the management accountant disclose algorithmic bias to regulators or customers? What are the advantages and disadvantages?
+What safeguards could be applied to mitigate ethical risks in AI-driven credit scoring?
+How can the company balance transparency with competitive advantage?
+Section C – Reflection
+How would you ensure professional behavior and objectivity in digital financial services?
+If you were an internal auditor, how would you handle this situation?
+What measures could fintech companies in Sri Lanka adopt to improve trust and transparency with customers?
+Family Ties in Procurement
+A large construction firm in Colombo is bidding for a government infrastructure contract.
+The Procurement Manager:
+Is related to the Director of one of the bidding subcontractors.
+Did not formally disclose this relationship.
+Claims he can “remain objective.”
+The subcontractor’s bid is not the lowest but promises political “stability.”
+The company’s board pressures:
+“Choose the safest political option. We cannot risk future tenders.”
+1. Identify Ethical Issues
+Which CIMA Code of Ethics principles are at risk?
+What ethical threats (familiarity, advocacy, intimidation, self-interest, self-review) can you identify?
+What are the possible consequences if the conflict is ignored?
+2. Evaluate Possible Actions
+What steps could the Procurement Manager take to handle the conflict of interest?
+Should the relationship with the subcontractor be disclosed formally to the board? Why or why not?
+How could the Procurement Manager respond to board pressure while maintaining integrity? List at least two alternatives.
+3. Reflect and Recommend
+How can professional behavior and integrity be maintained without harming the company’s business interests?
+If you were an internal auditor, how would you report this situation?
+Provide your recommended course of action and justify it using the CIMA ethical framework.

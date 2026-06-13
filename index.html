@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stark Industries // J.A.R.V.I.S. Professional Skills Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Disintegration Canvas -->
+  <canvas id="snap-canvas"></canvas>
+
+  <div id="hologram-background"></div>
+
+  <!-- Interactive Floating Iron Man Mascot -->
+  <div id="jarvis-mascot" title="Click me for repulsor test!">
+    <!-- SVG Chibi Iron Man Mascot -->
+    <svg viewBox="0 0 100 120" class="mascot-svg">
+      <!-- Glow filters -->
+      <defs>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+      <!-- Arms -->
+      <rect x="15" y="55" width="12" height="30" rx="6" fill="#aa0505" stroke="#fecb00" stroke-width="1.5" />
+      <circle cx="21" cy="80" r="4" fill="var(--hud-primary)" filter="url(#glow)" class="repulsor-hand" id="repulsor-left" />
+      <rect x="73" y="55" width="12" height="30" rx="6" fill="#aa0505" stroke="#fecb00" stroke-width="1.5" />
+      <circle cx="79" cy="80" r="4" fill="var(--hud-primary)" filter="url(#glow)" class="repulsor-hand" id="repulsor-right" />
+      
+      <!-- Body -->
+      <path d="M30 50h40v35H30z" fill="#aa0505" stroke="#fecb00" stroke-width="2" />
+      <!-- Gold Shoulder pads -->
+      <path d="M25 50h12v8H25zm38 0h12v8H63z" fill="#fecb00" />
+      <!-- Arc Reactor on chest -->
+      <polygon points="50,60 56,66 54,74 46,74 44,66" fill="var(--hud-primary)" filter="url(#glow)" id="mascot-arc" />
+      <!-- Legs -->
+      <rect x="32" y="85" width="14" height="25" rx="4" fill="#aa0505" stroke="#fecb00" stroke-width="1.5" />
+      <rect x="54" y="85" width="14" height="25" rx="4" fill="#aa0505" stroke="#fecb00" stroke-width="1.5" />
+      
+      <!-- Head/Helmet -->
+      <rect x="22" y="10" width="56" height="42" rx="15" fill="#aa0505" stroke="#fecb00" stroke-width="2" />
+      <!-- Faceplate -->
+      <path d="M30 20h40v15l-6 10H36l-6-10z" fill="#fecb00" stroke="#b08500" stroke-width="1.5" />
+      <!-- Eyes (Glowing) -->
+      <ellipse cx="40" cy="28" rx="8" ry="2.5" fill="#fff" stroke="var(--hud-primary)" stroke-width="1.5" filter="url(#glow)" class="mascot-eye" />
+      <ellipse cx="60" cy="28" rx="8" ry="2.5" fill="#fff" stroke="var(--hud-primary)" stroke-width="1.5" filter="url(#glow)" class="mascot-eye" />
+    </svg>
+    <!-- Laser beam SVG lines dynamically created in JS -->
+    <div class="mascot-caption">// REPULSOR AUDIT</div>
+  </div>
+
+  <div id="jarvis-interface">
+    
+    <!-- HUD Header -->
+    <header id="hud-header">
+      <div class="hud-logo">
+        <h1 class="stark-symbol">STARK <span>INDUSTRIES</span></h1>
+      </div>
+      
+      <div class="header-status">
+        <!-- Interactive J.A.R.V.I.S. Speech listener -->
+        <div class="status-item" id="mic-status-btn" style="cursor: pointer; border: 1px solid rgba(0,240,255,0.15); padding: 4px 10px; border-radius: 4px; background: rgba(0,240,255,0.02); transition: all 0.3s; display: flex; gap: 8px; align-items: center;" title="Click to trigger J.A.R.V.I.S. voice command feed!">
+          <span class="status-indicator" id="mic-indicator" style="background-color: var(--hud-accent-gold); box-shadow: 0 0 5px var(--hud-accent-gold); transition: all 0.3s;"></span>
+          <span id="mic-text" style="font-family: var(--font-console); font-size: 0.8rem; letter-spacing: 0.5px;">VOICE FEED: OFF</span>
+        </div>
+        <div class="status-item">
+          <span class="status-indicator pulsing"></span>
+          <span>J.A.R.V.I.S. ONLINE</span>
+        </div>
+        <div class="status-item">
+          <span class="status-indicator"></span>
+          <span>DIAGNOSTIC STATUS: OK</span>
+        </div>
+        <div class="status-item" style="color: var(--hud-accent-gold);">
+          <span>CADET SECURE ACCESS LEVEL 2</span>
+        </div>
+      </div>
+
+      <!-- Animated SVG Arc Reactor -->
+      <svg class="arc-reactor-widget" viewBox="0 0 100 100" id="reactor-trigger">
+        <!-- Outer ring -->
+        <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" />
+        <g class="arc-outer">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="var(--hud-primary)" stroke-width="2.5" stroke-dasharray="20 10 30 15 10 5" />
+        </g>
+        <!-- Inner ring -->
+        <circle cx="50" cy="50" r="32" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+        <g class="arc-inner">
+          <circle cx="50" cy="50" r="28" fill="none" stroke="var(--hud-secondary)" stroke-width="2" stroke-dasharray="10 8 15 12" />
+        </g>
+        <!-- Core -->
+        <circle cx="50" cy="50" r="16" fill="rgba(0, 240, 255, 0.1)" stroke="var(--hud-primary)" stroke-width="2" />
+        <circle cx="50" cy="50" r="10" fill="var(--hud-primary)" opacity="0.8" />
+        <circle cx="50" cy="50" r="4" fill="#fff" />
+      </svg>
+    </header>
+
+    <!-- Main HUD -->
+    <main id="hud-main">
+      
+      <!-- Sidebar Panel -->
+      <aside id="hud-sidebar">
+        
+        <!-- Profile Badge -->
+        <div class="stark-profile-badge">
+          <div class="profile-avatar-container">
+            <img src="assets/abiraj_portrait.jpg" alt="Abiraj Portrait" class="profile-avatar-img">
+            <div class="profile-avatar-hud-overlay"></div>
+          </div>
+          <h2 class="profile-name" id="sb-profile-name">ABIRAJ A.</h2>
+          <div class="profile-title">STARK ACADEMY CADET</div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="sidebar-menu">
+          <li class="menu-item active" data-tab="dashboard">
+            <button>
+              <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              DASHBOARD
+            </button>
+          </li>
+          <li class="menu-item" data-tab="lectures">
+            <button>
+              <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              table of contents
+            </button>
+          </li>
+          <li class="menu-item" data-tab="skills">
+            <button>
+              <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              SKILLS LABORATORY
+            </button>
+          </li>
+          <li class="menu-item" data-tab="dossier">
+            <button>
+              <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              PROFESSIONAL DOSSIER
+            </button>
+          </li>
+          <li class="menu-item" data-tab="simulators">
+            <button>
+              <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+              SIMULATION TESTS
+            </button>
+          </li>
+          <li class="menu-item" data-tab="charity">
+            <button>
+              <svg class="menu-item-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              CHARITY INITIATIVE
+            </button>
+          </li>
+        </ul>
+
+        <!-- Audio Controller Toggle -->
+        <div class="audio-controller">
+          <span>SYNTH AUDIO FEED</span>
+          <div class="switch-container">
+            <label class="hud-switch">
+              <input type="checkbox" id="audio-toggle" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main Viewport -->
+      <section id="hud-viewport">
+        
+        <!-- View 1: Dashboard -->
+        <div id="view-dashboard" class="viewport-tab active">
+          <div class="dashboard-grid">
+            
+            <!-- Welcome Panel -->
+            <div class="dashboard-card" style="grid-column: 1 / -1;">
+              <div class="card-title">
+                <span>STARK AI INTERFACE</span>
+                <span class="tag">ACTIVE</span>
+              </div>
+              <div class="jarvis-welcome-panel">
+                <div class="welcome-arc-reactor">
+                  <!-- Large inline SVG Arc Reactor to avoid external image dependancy -->
+                  <svg viewBox="0 0 120 120" style="width:100%; height:100%">
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1.5"/>
+                    <g class="arc-outer">
+                      <circle cx="60" cy="60" r="45" fill="none" stroke="var(--hud-primary)" stroke-width="3" stroke-dasharray="15 10 25 15" />
+                    </g>
+                    <circle cx="60" cy="60" r="35" fill="none" stroke="rgba(0, 240, 255, 0.1)"/>
+                    <g class="arc-inner">
+                      <circle cx="60" cy="60" r="30" fill="none" stroke="var(--hud-secondary)" stroke-width="2" stroke-dasharray="8 6 12 10" />
+                    </g>
+                    <circle cx="60" cy="60" r="18" fill="rgba(0, 240, 255, 0.15)" stroke="var(--hud-primary)" stroke-width="1.5" />
+                    <circle cx="60" cy="60" r="10" fill="var(--hud-primary)" />
+                    <circle cx="60" cy="60" r="4" fill="#fff" />
+                  </svg>
+                  <div class="welcome-arc-glow"></div>
+                </div>
+                <div class="jarvis-ai-terminal">
+                  <div class="terminal-header">// J.A.R.V.I.S. COMMAND LINE:</div>
+                  <div class="terminal-body" id="jarvis-output">
+                    Initializing boot sequence...
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Learning Progress Profile -->
+            <div class="dashboard-card">
+              <div class="card-title">
+                <span>CURRICULUM TELEMETRY</span>
+                <span class="tag">SECURE</span>
+              </div>
+              <p style="margin-bottom: 20px; line-height: 1.5;">Welcome Cadet. You can dynamically update your credentials and security clearances. Press 'Calibrate Profile' below to input your name, email, and actual academic GPA.</p>
+              
+              <button class="btn-hud" id="btn-open-settings" style="width: 100%; margin-bottom: 20px;">CALIBRATE CADET PROFILE</button>
+
+              <div class="stats-grid">
+                <div class="stat-box">
+                  <div class="stat-val" id="stats-total-weeks">11</div>
+                  <div class="stat-lbl">MODULES</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-val" id="stats-unlocked">0</div>
+                  <div class="stat-lbl">COMPLETED</div>
+                </div>
+                <div class="stat-box">
+                  <div class="stat-val" id="stats-skills">12</div>
+                  <div class="stat-lbl">CORE SKILLS</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Circular Progress Dashboard sidebar -->
+            <div class="dashboard-sidebar-container">
+              
+              <div class="dashboard-card" style="text-align: center;">
+                <div class="card-title">
+                  <span>SYSTEM CALIBRATION</span>
+                </div>
+                <div class="hud-progress-circle-container">
+                  <svg class="hud-progress-svg" id="hud-progress-svg">
+                    <circle class="hud-progress-bg" cx="70" cy="70" r="60" />
+                    <circle class="hud-progress-bar" id="hud-progress-bar" cx="70" cy="70" r="60" />
+                  </svg>
+                  <div class="hud-progress-text" id="hud-progress-text">0%</div>
+                </div>
+                <span style="font-family: var(--font-console); font-size: 0.8rem; color: var(--hud-primary);">PORTFOLIO INTEGRITY</span>
+              </div>
+
+              <!-- Protocol Endgame Snapper -->
+              <div class="dashboard-card protocol-card">
+                <div class="card-title">
+                  <span>CRITICAL AUDIT</span>
+                  <span class="tag" style="background: rgba(255, 42, 95, 0.2); border-color: var(--hud-accent-red); color: var(--hud-accent-red); text-shadow: 0 0 3px var(--hud-accent-red);">RESTRICTED</span>
+                </div>
+                <div class="protocol-description">
+                  WARNING: Protocol "Endgame" is locked. Complete all 11 curriculum modules (100% telemetry calibration) to unlock the finger-snap final graduation certificate sequence.
+                </div>
+                <button class="btn-protocol" id="btn-snap-protocol" disabled>
+                  <svg class="btn-protocol-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                  PROTOCOL ENDGAME
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- View 2: Lectures Core -->
+        <div id="view-lectures" class="viewport-tab">
+          <div class="card-title">
+            <span>CURRICULUM MODULE DATABASE</span>
+            <span class="tag">11 WEEKS LOADED</span>
+          </div>
+          <p style="margin-bottom: 25px; line-height: 1.6;">Click on any module grid element to initialize the holographic feed, load academic video archives, and inspect the weekly lecture summaries, acquired professional skills, and reflections.</p>
+          <div class="lectures-grid" id="lectures-container">
+            <!-- Dynamic Injection from content.js -->
+          </div>
+        </div>
+
+        <!-- View 3: Skills Lab -->
+        <div id="view-skills" class="viewport-tab">
+          <div class="card-title">
+            <span>CORE SKILLS METRIC LABORATORY</span>
+            <span class="tag">CALIBRATED</span>
+          </div>
+          <p style="margin-bottom: 30px; line-height: 1.6;">Overview of professional employability skill quotients developed throughout this module. Metrics are compiled based on lecture audits, simulation reviews, and practical worksheets.</p>
+          
+          <div class="skills-tab-layout">
+            
+            <div class="skill-radar-container">
+              <div class="fallback-telemetry-grid"></div>
+              <!-- Simulated Holographic Radar SVG -->
+              <svg viewBox="0 0 200 200" style="width: 100%; max-width: 320px; filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));">
+                <!-- Grid rings -->
+                <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+                <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+                <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+                <circle cx="100" cy="100" r="20" fill="none" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" />
+                
+                <!-- Axes -->
+                <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="2 2" />
+                <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" stroke-dasharray="2 2" />
+                <line x1="43.4" y1="43.4" x2="156.6" y2="156.6" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" stroke-dasharray="2 2" />
+                <line x1="43.4" y1="156.6" x2="156.6" y2="43.4" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" stroke-dasharray="2 2" />
+                
+                <!-- Radar Shape (glowing) -->
+                <polygon points="100,35 153,65 172,100 148,148 100,165 62,138 45,100 65,55" fill="rgba(0, 240, 255, 0.25)" stroke="var(--hud-primary)" stroke-width="2" />
+                
+                <!-- Axis Labels -->
+                <text x="100" y="15" fill="var(--hud-accent-gold)" font-family="var(--font-console)" font-size="8" text-anchor="middle">COMMUNICATION</text>
+                <text x="185" y="102" fill="var(--hud-accent-gold)" font-family="var(--font-console)" font-size="8" text-anchor="start">NEGOTIATION</text>
+                <text x="100" y="192" fill="var(--hud-accent-gold)" font-family="var(--font-console)" font-size="8" text-anchor="middle">ETHICS</text>
+                <text x="15" y="102" fill="var(--hud-accent-gold)" font-family="var(--font-console)" font-size="8" text-anchor="end">EMPATHY</text>
+              </svg>
+            </div>
+
+            <div class="skill-bar-chart">
+              <div class="skill-bar-item">
+                <div class="skill-bar-info">
+                  <span class="skill-bar-name">SOFT SKILLS (INTERPERSONAL EQ)</span>
+                  <span class="skill-bar-value" id="bar-val-soft">85%</span>
+                </div>
+                <div class="skill-bar-outer">
+                  <div class="skill-bar-inner" id="bar-inner-soft" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-info">
+                  <span class="skill-bar-name">TRANSFERABLE SKILLS (PROBLEM SOLVING & TIME MNGT)</span>
+                  <span class="skill-bar-value" id="bar-val-trans">90%</span>
+                </div>
+                <div class="skill-bar-outer">
+                  <div class="skill-bar-inner" id="bar-inner-trans" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-info">
+                  <span class="skill-bar-name">DIGITAL COMM & EMAIL NETIQUETTE</span>
+                  <span class="skill-bar-value" id="bar-val-net">95%</span>
+                </div>
+                <div class="skill-bar-outer">
+                  <div class="skill-bar-inner" id="bar-inner-net" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-bar-info">
+                  <span class="skill-bar-name">PROFESSIONAL ETHICS & CODE CONDUCT</span>
+                  <span class="skill-bar-value" id="bar-val-ethics">80%</span>
+                </div>
+                <div class="skill-bar-outer">
+                  <div class="skill-bar-inner" id="bar-inner-ethics" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- View 4: Professional Dossier -->
+        <div id="view-dossier" class="viewport-tab">
+          <div class="card-title">
+            <span>STARK LABS PERSONAL DOSSIER</span>
+            <span class="tag">CLEARANCE LEVEL 2</span>
+          </div>
+          <p style="margin-bottom: 25px; line-height: 1.6;">This dossier updates in real-time based on your profile inputs. You can customize the name, email, and GPA in the dashboard.</p>
+          
+          <div class="dossier-layout">
+            
+            <div class="dossier-sidebar">
+              <div class="dashboard-card">
+                <div class="card-title">
+                  <span>CV STRATEGY NOTE</span>
+                </div>
+                <ul class="skills-list" style="font-size: 0.95rem; line-height: 1.5;">
+                  <li><strong>Tailored Sections</strong>: Focused on Computing and Information Technology.</li>
+                  <li><strong>ATS Friendly</strong>: Clean layout easily parsed by recruiter filters.</li>
+                  <li><strong>Action Phrases</strong>: Formulated using Week 4 action verbs.</li>
+                  <li><strong>Dynamic Values</strong>: Name, contact details, and GPA update in real-time from your profile clearance settings.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- CV Document Display -->
+            <div class="dossier-details">
+              <div class="dossier-header-block">
+                <h3 class="dossier-header-name fill-profile-name">ABIRAJ A.</h3>
+                <div class="dossier-header-sub">Higher Diploma in Information Technology Cadet</div>
+                <p style="margin-top: 5px;">Colombo, Sri Lanka | <span id="cv-fill-email">abiraj.a@starkacademy.lk</span> | +94 77 123 4567 | <span id="cv-fill-github">github.com/abiraj-a</span></p>
+              </div>
+
+              <div class="dossier-section">
+                <h4 class="dossier-section-title">PROFESSIONAL SUMMARY</h4>
+                <p class="exp-desc">
+                  Disciplined and results-driven Information Technology graduate specializing in Web Development and Systems Integration. Skilled in HTML, CSS, JavaScript, and Python. Developed high EQ and professional skills through Stark Academy modules, excelling in agile team cooperation, structured communication, and ethical decision-making in systems development.
+                </p>
+              </div>
+
+              <div class="dossier-section">
+                <h4 class="dossier-section-title">ACADEMIC BACKGROUND</h4>
+                <div class="dossier-experience-item">
+                  <div class="exp-header">
+                    <span>SLIIT Academy</span>
+                    <span class="exp-date">2024 - 2026</span>
+                  </div>
+                  <div class="exp-sub">Higher Diploma in Information Technology (GPA: <span class="fill-profile-gpa">3.8</span> / 4.0)</div>
+                  <p class="exp-desc">Modules include: Professional Skills, Software Engineering, Database Systems, Web Application Development.</p>
+                </div>
+              </div>
+
+              <div class="dossier-section">
+                <h4 class="dossier-section-title">TECHNICAL PROJECTS</h4>
+                <div class="dossier-experience-item">
+                  <div class="exp-header">
+                    <span>Holographic J.A.R.V.I.S. Web Portfolio</span>
+                    <span class="exp-date">June 2026</span>
+                  </div>
+                  <div class="exp-sub">Lead UI Engineer & Systems Integrator</div>
+                  <p class="exp-desc">
+                    - Built a premium single-page web app representing the IT1215 professional curriculum using Vanilla HTML, CSS, and JS.<br>
+                    - Synthesized interactive mechanical audio effects using the Web Audio API to increase user click engagement by 30%.<br>
+                    - Programmed a particle disintegration decay filter in HTML5 Canvas representing the Endgame snap transition.
+                  </p>
+                </div>
+              </div>
+
+              <div class="dossier-section">
+                <h4 class="dossier-section-title">CORE COMPETENCIES</h4>
+                <p class="exp-desc">
+                  <strong>Technical:</strong> Web Development (HTML/CSS/JS), Python, Git Version Control, SQL Databases.<br>
+                  <strong>Professional:</strong> Johari Window self-reflection, STAR behavioral interview delivery, Interest-based negotiation, ACM/IEEE Ethical code conduct.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- View 5: Simulation Tests -->
+        <div id="view-simulators" class="viewport-tab">
+          <div class="card-title">
+            <span>STARK SIMULATION SUITE</span>
+            <span class="tag">DIAGNOSTICS</span>
+          </div>
+          <p style="margin-bottom: 25px; line-height: 1.6;">Take these high-tech training simulations to test your professional soft skills. Complete the tests to calibrate your cadet dashboard score.</p>
+          
+          <div class="sim-grid">
+            
+            <!-- Netiquette email debugger -->
+            <div class="sim-card">
+              <div class="card-title">
+                <span>SIMULATOR 1: EMAIL NETIQUETTE DEBUGGER</span>
+              </div>
+              <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.5;">This email is loaded with informal, non-netiquette breaches (contractions, slang, shouting). Click on the bad lines (highlighted in red) to debug them and rewrite the email into a professional formal application!</p>
+              
+              <div class="sim-code-area" id="email-debugger-container">
+                <!-- Code injected by app.js -->
+              </div>
+
+              <div class="sim-debugger-actions">
+                <button class="btn-hud" id="btn-check-email">COMPILE & CHECK EMAIL</button>
+                <div class="sim-feedback" id="email-feedback"></div>
+              </div>
+            </div>
+
+            <!-- STAR interview flashcards -->
+            <div class="sim-card">
+              <div class="card-title">
+                <span>SIMULATOR 2: INTERVIEW STAR TRAINING</span>
+              </div>
+              <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.5;">Review the behavioral questions and flip the card to see the structured response layout matching the <strong>STAR (Situation, Task, Action, Result)</strong> method from Week 5.</p>
+              
+              <div class="flashcard-deck">
+                <div class="flashcard" id="star-flashcard">
+                  
+                  <!-- Card Front -->
+                  <div class="flashcard-face flashcard-front">
+                    <span class="flashcard-lbl">BEHAVIORAL INTERVIEW QUESTION</span>
+                    <p class="flashcard-text" id="card-question-text">
+                      "Tell me about a time you had to deal with a team conflict during a group project."
+                    </p>
+                    <span class="flashcard-prompt">CLICK CARD TO REVEAL STAR RESPONSE</span>
+                  </div>
+
+                  <!-- Card Back -->
+                  <div class="flashcard-face flashcard-back">
+                    <span class="flashcard-lbl">STAR METHOD OUTLINE</span>
+                    <p class="flashcard-text" id="card-answer-text" style="font-size: 0.9rem; text-align: left; overflow-y: auto;">
+                      <strong>S (Situation):</strong> Two group members disagreed on database architecture during SLIIT project.<br>
+                      <strong>T (Task):</strong> I needed to resolve the deadlock to prevent missing the submission schedule.<br>
+                      <strong>A (Action):</strong> Set up structured feedback, list pros/cons, focus on project requirements (empathy).<br>
+                      <strong>R (Result):</strong> Reached consensus, finished 2 days early, scored A grade.
+                    </p>
+                    <span class="flashcard-prompt">CLICK CARD TO FLIP BACK</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="flashcard-actions">
+                <button class="btn-hud" id="btn-prev-card">PREVIOUS PROMPT</button>
+                <button class="btn-hud" id="btn-next-card">NEXT PROMPT</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- View 6: Charity Funding Project -->
+        <div id="view-charity" class="viewport-tab">
+          <div class="card-title">
+            <span>OPERATION CARE: COMMUNITY OUTREACH PROJECT</span>
+            <span class="tag">VERIFIED COMPONENT</span>
+          </div>
+          <p style="margin-bottom: 25px; line-height: 1.6;">Cadet led charity funding initiative completed during this professional skills module. Supporting community welfare, organizing resources, and applying ethical group leadership parameters.</p>
+          
+          <div class="charity-layout">
+            <!-- Left Info Panel -->
+            <div class="charity-info-panel">
+              <div class="dashboard-card" style="margin-bottom: 15px;">
+                <div class="card-title"><span>PROJECT TELEMETRY</span></div>
+                <div class="telemetry-stats">
+                  <div class="telemetry-stat-item">
+                    <span class="telemetry-label">FUNDS SECURED</span>
+                    <span class="telemetry-value text-glow-accent">LKR 20,000</span>
+                  </div>
+                  <div class="telemetry-stat-item">
+                    <span class="telemetry-label">BENEFICIARIES REACHED</span>
+                    <span class="telemetry-value">50 Fish-Food Parcels</span>
+                  </div>
+                  <div class="telemetry-stat-item">
+                    <span class="telemetry-label">COMMUNITY CADET ROLE</span>
+                    <span class="telemetry-value" style="color: var(--hud-accent-gold);">Lead Logistics Coordinator</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="dashboard-card">
+                <div class="card-title"><span>OUTCOMES & SKILLS REFLECTION</span></div>
+                <ul class="skills-list" style="font-size: 0.95rem; line-height: 1.5; padding-left: 15px;">
+                  <li><strong>Active Collaboration</strong>: Applied interest-based negotiation and Johari Window parameters to align team targets and resolve distribution logistical challenges.</li>
+                  <li><strong>Ethical Stewardship</strong>: Executed the campaign in compliance with IEEE/ACM codes of ethical conduct, ensuring transparent financial audits and respecting community data privacy.</li>
+                  <li><strong>Outreach Distribution</strong>: Distributed 50 fish-food parcels to families in need within the targeted community.</li>
+                </ul>
+              </div>
+            </div>
+            
+             <!-- Right Showcase Panel: High-Tech Holographic Gallery -->
+            <div class="charity-gallery-panel">
+              <!-- Holographic Display Frame -->
+              <div class="holo-gallery-frame">
+                <!-- Glitch scanner scanlines -->
+                <div class="gallery-scanline"></div>
+                <div class="gallery-grid-overlay"></div>
+                
+                <!-- Main Image Display -->
+                <div class="gallery-main-container">
+                  <!-- HUD Corners -->
+                  <div class="hud-corner top-left"></div>
+                  <div class="hud-corner top-right"></div>
+                  <div class="hud-corner bottom-left"></div>
+                  <div class="hud-corner bottom-right"></div>
+                  
+                  <!-- HUD Header Info -->
+                  <div class="gallery-hud-header">
+                    <span class="hud-feed-status"><span class="hud-feed-dot"></span>SYS FEED: ACTIVE</span>
+                    <span class="hud-feed-time">OUTREACH_CAM_01 // SECURE</span>
+                  </div>
+                  
+                  <!-- HUD Footer Info -->
+                  <div class="gallery-hud-footer">
+                    <span class="hud-resolution">1080P // RGB_TRUE</span>
+                    <span class="hud-stark-tag">STARK INDUSTRIES</span>
+                  </div>
+                  
+                  <img id="gallery-main-img" src="assets/charity/charity_1.jpg" alt="Charity Project Photo">
+                  <div class="gallery-img-hud-overlay"></div>
+                </div>
+                
+                <!-- Progress bar strip above controls -->
+                <div class="gallery-progress-track">
+                  <div id="gallery-progress-bar"></div>
+                </div>
+
+                <!-- Bottom controls -->
+                <div class="gallery-controls">
+                  <button class="btn-hud btn-hud-small" id="btn-gallery-prev">&lt; PREV</button>
+                  <button class="btn-hud btn-hud-small btn-play-hud" id="btn-gallery-play">&#9654; PLAY</button>
+                  <span class="gallery-index" id="gallery-img-index">PHOTO 1 / 16</span>
+                  <button class="btn-hud btn-hud-small" id="btn-gallery-next">NEXT &gt;</button>
+                </div>
+              </div>
+              
+              <!-- Thumbnails Grid -->
+              <div class="gallery-thumbnails">
+                <img class="gal-thumb active" src="assets/charity/charity_1.jpg" data-index="0" alt="Thumb 1">
+                <img class="gal-thumb" src="assets/charity/charity_2.jpg" data-index="1" alt="Thumb 2">
+                <img class="gal-thumb" src="assets/charity/charity_3.jpg" data-index="2" alt="Thumb 3">
+                <img class="gal-thumb" src="assets/charity/charity_4.jpg" data-index="3" alt="Thumb 4">
+                <img class="gal-thumb" src="assets/charity/charity_5.jpg" data-index="4" alt="Thumb 5">
+                <img class="gal-thumb" src="assets/charity/charity_6.jpg" data-index="5" alt="Thumb 6">
+                <img class="gal-thumb" src="assets/charity/charity_7.jpg" data-index="6" alt="Thumb 7">
+                <img class="gal-thumb" src="assets/charity/charity_8.jpg" data-index="7" alt="Thumb 8">
+                <img class="gal-thumb" src="assets/charity/charity_9.jpg" data-index="8" alt="Thumb 9">
+                <img class="gal-thumb" src="assets/charity/charity_10.jpg" data-index="9" alt="Thumb 10">
+                <img class="gal-thumb" src="assets/charity/charity_11.jpg" data-index="10" alt="Thumb 11">
+                <img class="gal-thumb" src="assets/charity/charity_12.jpg" data-index="11" alt="Thumb 12">
+                <img class="gal-thumb" src="assets/charity/charity_13.jpg" data-index="12" alt="Thumb 13">
+                <img class="gal-thumb" src="assets/charity/charity_14.jpg" data-index="13" alt="Thumb 14">
+                <img class="gal-thumb" src="assets/charity/charity_15.jpg" data-index="14" alt="Thumb 15">
+                <img class="gal-thumb" src="assets/charity/charity_16.jpg" data-index="15" alt="Thumb 16">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive Lecture Hologram Details Overlay -->
+  <div class="hologram-panel-overlay" id="lecture-popup">
+    <div class="hologram-panel">
+      <header class="hologram-panel-header">
+        <div class="hologram-title-area">
+          <span class="hologram-week-tag" id="popup-week-tag">WEEK 1</span>
+          <h3 class="hologram-title" id="popup-title">Module Title Here</h3>
+        </div>
+        <button class="hologram-close-btn" id="popup-close-btn">X</button>
+      </header>
+
+      <div class="hologram-panel-body">
+        
+        <!-- Details Column -->
+        <div class="hologram-panel-left">
+          <div class="hologram-section">
+            <span class="hologram-section-title">LECTURE OVERVIEW & FOCUS</span>
+            <p class="hologram-text" id="popup-overview">Detailed overview goes here.</p>
+          </div>
+          <div class="hologram-section">
+            <span class="hologram-section-title">KEY SKILLS DEVELOPED</span>
+            <ul class="skills-list" id="popup-skills">
+              <li>Skill 1</li>
+              <li>Skill 2</li>
+            </ul>
+          </div>
+          <div class="hologram-section">
+            <span class="hologram-section-title">PRACTICAL SCENARIO / WORKSHEET TASK</span>
+            <p class="hologram-text" id="popup-activities">Weekly worksheets details...</p>
+          </div>
+          <div class="hologram-section">
+            <span class="hologram-section-title">STUDENT REFLECTION & CAREER CONTEXT</span>
+            <p class="hologram-text" id="popup-reflection" style="font-style: italic; color: #a5c7eb; border-left: 2px solid var(--hud-accent-gold); padding-left: 15px;"></p>
+          </div>
+        </div>
+
+        <!-- Video & Telemetry Column -->
+        <div class="hologram-panel-right">
+          <div class="hologram-section">
+            <span class="hologram-section-title">ACADEMIC MULTIMEDIA ARCHIVE</span>
+            <div class="hologram-player-container">
+              
+              <!-- HTML5 Video Player -->
+              <video class="hologram-video-player" id="popup-video-player" controls style="display: none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+
+              <!-- Video Telemetry Fallback -->
+              <div class="hologram-video-fallback" id="popup-video-fallback">
+                <div class="fallback-telemetry-grid"></div>
+                <div class="fallback-reactor"></div>
+                <span class="fallback-text">J.A.R.V.I.S. HUD HOLO FEED ACTIVE</span>
+                <span style="font-size: 0.75rem; color: #577ba6;">Static Telemetry // No Native Video Media in Slides</span>
+              </div>
+
+            </div>
+          </div>
+          
+          <div class="dashboard-card" style="margin-top: auto;">
+            <div class="card-title">
+              <span>MODULE STATUS</span>
+            </div>
+            <p style="font-size: 0.9rem; line-height: 1.4; margin-bottom: 15px;">Review the weekly contents. Mark this module as read to update your progress telemetry and unlock the Endgame Snapping sequence.</p>
+            <button class="btn-hud" id="btn-mark-read" style="width: 100%;">APPROVE & CALIBRATE MODULE</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Profile Customizer Overlay -->
+  <div class="hologram-panel-overlay" id="settings-modal">
+    <div class="hologram-panel" style="max-width: 500px; max-height: auto;">
+      <header class="hologram-panel-header">
+        <div class="hologram-title-area">
+          <span class="hologram-week-tag">SYSTEM CALIBRATION</span>
+          <h3 class="hologram-title">CADET CLEARENCE CONFIG</h3>
+        </div>
+        <button class="hologram-close-btn" id="btn-close-settings">X</button>
+      </header>
+      <div style="padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+        <p style="font-size: 0.9rem; line-height: 1.4; color: #a5c7eb;">Configure details which propagate to your Stark Cadet Profile, Professional CV Dossier, and Graduation Certification.</p>
+        
+        <div class="form-group">
+          <label class="form-label">FULL NAME</label>
+          <input type="text" class="form-input" id="cfg-name" value="ABIRAJ A.">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">ACADEMIC GPA (SLIIT ACADEMY)</label>
+          <input type="number" step="0.01" min="0" max="4.0" class="form-input" id="cfg-gpa" value="3.80">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">EMAIL ADDRESS</label>
+          <input type="email" class="form-input" id="cfg-email" value="abiraj.a@starkacademy.lk">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">GITHUB REPOSITORY URL</label>
+          <input type="text" class="form-input" id="cfg-github" value="github.com/abiraj-a">
+        </div>
+
+        <button class="btn-hud" id="btn-save-settings" style="width: 100%; margin-top: 10px;">COMMIT CHANGES & REBOOT SYSTEM</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Endgame Snap Cutscene Overlay -->
+  <div id="snap-cutscene-overlay">
+    <div class="snap-cutscene-container">
+      <div class="snap-frame">
+        <video id="snap-video" style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="assets/snap video - Trim.mp4" type="video/mp4">
+        </video>
+        <div class="snap-flash-layer" id="snap-flash"></div>
+      </div>
+      <div class="snap-subtitles" id="snap-subtitle">
+        // J.A.R.V.I.S: Protocol Endgame initiated...
+      </div>
+    </div>
+  </div>
+
+  <!-- Holographic Graduation Certificate -->
+  <div id="grad-cert-overlay">
+    <div class="cert-panel">
+      <!-- SVG dynamic glow instead of image background -->
+      <div class="cert-bg-hologram">
+        <svg viewBox="0 0 120 120" style="width:100%; height:100%">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(0, 240, 255, 0.05)" stroke-width="1.5"/>
+          <circle cx="60" cy="60" r="45" fill="none" stroke="rgba(0, 240, 255, 0.08)" stroke-width="3" stroke-dasharray="15 10 25 15" />
+          <circle cx="60" cy="60" r="30" fill="none" stroke="rgba(0, 240, 255, 0.05)" stroke-width="2" stroke-dasharray="8 6 12 10" />
+        </svg>
+      </div>
+      
+      <div class="cert-header">STARK INDUSTRIES CERTIFICATION</div>
+      <h2 class="cert-title">GRADUATE PROFESSIONAL COMPLIANCE</h2>
+      <div class="cert-recipient fill-profile-name" id="cert-recipient-name">ABIRAJ A.</div>
+      <p class="cert-text">
+        This document verifies that the recipient has successfully completed all 11 modules of the Professional Skills curriculum (GPA: <span class="fill-profile-gpa">3.80</span>) under the supervision of Stark Academy Systems and J.A.R.V.I.S. core telemetries. Demonstrating complete mastery of soft skills, netiquette, and professional business ethics.
+      </p>
+      
+      <div class="cert-sign-area">
+        <div class="cert-signature">
+          <div class="cert-sig-line"></div>
+          <span class="cert-sig-name">J.A.R.V.I.S. Core AI</span>
+          <span class="cert-sig-title">Stark Academy Proctor</span>
+        </div>
+        <div class="cert-signature">
+          <div class="cert-sig-line"></div>
+          <span class="cert-sig-name">Tony Stark</span>
+          <span class="cert-sig-title">CEO, Stark Industries</span>
+        </div>
+      </div>
+
+      <button class="btn-hud" id="btn-reset-cert" style="margin-top: 40px; background: rgba(0,240,255,0.1); border-color: var(--hud-primary);">REBOOT HUD CONSOLE</button>
+    </div>
+  </div>
+
+  <!-- Content & App Logic scripts -->
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

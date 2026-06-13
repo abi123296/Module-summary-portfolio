@@ -1,0 +1,84 @@
+Slide 1: 
+Content: Business Ethics in Practice | Shenal Rajakarunanayake [BBA, MPhil] Department of Industrial Management Faculty of Business University of Moratuwa
+
+Slide 2: Icebreaker
+Content: Icebreaker | A manager delays recording expenses to meet quarterly targets. A supplier offers expensive gifts during contract renewal. A finance executive shares internal forecasts with a friend. A junior accountant considers sharing insider information about a merger with a family member. The HR manager fast-tracks recruitment of a CEO’s friend over more qualified applicants. The sales team inflates sales figures temporarily to meet bonus targets. A procurement officer approves a contract with a relative’s company because it offers “special discounts.” The marketing team claims a product is “eco-friendly,” even though only part of the process meets standards. The finance manager bypasses internal approval steps to process urgent payments quickly. An employee uses company resources to complete personal freelance work. A manager asks team members to understate project risks to secure additional funding. A tech team modifies AI recommendations to favor high-value customers, without informing users. | Ethical | Unethical | Depends
+
+Slide 3: 
+Content: INTRODUCTION | 01 | Professionals have a duty to observe the highest standards of conduct and integrity, and to uphold the good standing and reputation of the profession. They must also refrain from any conduct which might discredit the profession.
+
+Slide 4: Complying with the Code
+Content: Complying with the Code | The accountancy profession has a duty to act in the public interest. Accountants’ responsibility goes beyond clients and employers to society as a whole. The Code provides requirements and guidance to support fulfilling this public interest responsibility. Professional accountants are required to comply with the Code at all times. If a conflict arises, laws and regulations override specific parts of the Code, but all remaining provisions must still be followed.
+
+Slide 5: Integrity
+Content: Being straightforward, honest and truthful in all professional and business relationships. You should not be associated with any information that you believe contains a materially false or misleading statement, or which is misleading by omission. | Integrity
+
+Slide 6: Integrity (Cont’d)
+Content: Example 01: Loan Approval Transparency A credit officer at a commercial bank discovers that a client has understated liabilities in a loan application. Even though approving the loan would help the branch meet quarterly targets, the officer rejects the application and reports the discrepancy. Example 02: Financial Reporting A finance manager at NDB Bank identifies an accounting error that overstates quarterly profits. Instead of ignoring it to maintain investor confidence, the manager ensures the correction is disclosed in the financial statements. Example 03: Investment Product Disclosure An investment advisor does not exaggerate expected returns of a unit trust fund and clearly explains risks, even if doing so reduces the likelihood of closing the sale. | Integrity (Cont’d)
+
+Slide 7: Objectivity
+Content: Not allowing bias, conflict of interest or the influence of other people to override your professional judgment. | Objectivity
+
+Slide 8: Objectivity (Cont’d)
+Content: Example 1: Related-Party Lending A relationship manager is asked to process a business loan for a close relative. To avoid bias, the manager discloses the conflict and removes themselves from the credit evaluation process. Example 2: Credit Rating Assessment An analyst evaluating a company’s creditworthiness refuses pressure from senior management to inflate the rating to attract the client’s deposits. Example 3: Procurement Decision A bank IT manager evaluating fintech vendors does not select a supplier simply because they were previously employed there
+
+Slide 9: Professional competence and due care
+Content: An ongoing commitment to your level of professional knowledge and skill. Base this on current developments in practice, legislation and techniques. Those working under your authority must also have the appropriate training and supervision. | Professional competence and due care
+
+Slide 10: Professional competence and due care (Cont’d)
+Content: Example 1: Regulatory Updates A compliance officer regularly updates knowledge of Central Bank regulations (e.g., anti-money laundering requirements) to ensure the bank’s policies remain compliant. Example 2: Risk Management A treasury officer managing foreign exchange exposure carefully assesses market risk instead of speculating based on rumors. Example 3: Staff Supervision A branch manager ensures junior officers handling mortgage documentation are properly trained and reviews their work before final approval.
+
+Slide 11: Confidentiality
+Content: You should not disclose professional information unless you have specific permission or a legal or professional duty to do so. | Confidentiality
+
+Slide 12: Confidentiality (Cont’d)
+Content: Example 1: Customer Data Protection An employee does not share a high-profile client’s account balance or transaction details with friends or on social media. Example 2: Insider Information A corporate banking officer aware of a confidential merger does not trade shares or tip off others before the public announcement. Example 3: Data Access A staff member only accesses customer records necessary for their role and does not browse accounts out of curiosity.
+
+Slide 13: Professional Behaviour
+Content: Comply with relevant laws and regulations. You must also avoid any action that could negatively affect the reputation of the profession. | Professional Behaviour
+
+Slide 14: Professional Behaviour (Cont’d)
+Content: Example 1: Anti-Money Laundering (AML) Compliance A bank employee files a Suspicious Transaction Report (STR) when unusual patterns are detected, even if it risks losing a valuable client. Example 2: Marketing Practices A bank avoids misleading advertising about “zero interest” credit cards when hidden fees apply. Example 3: Social Media Conduct A senior officer refrains from posting comments that could damage public trust in the financial system.
+
+Slide 15: 
+Content: The Code requires you to comply with these fundamental principles of ethics. The Code also requires you to apply the conceptual framework to identify, evaluate and address threats to compliance with the fundamental principles. Applying the conceptual framework requires exercising professional judgment, remaining alert for new information and to changes in facts and circumstances, and using the reasonable and informed third party test.
+
+Slide 16: 
+Content: HOW TO EXERCISE YOUR PROFESSIONAL JUDGMENT?
+
+Slide 17: Exercise of Professional Judgement
+Content: In exercising professional judgment to obtain this understanding, the professional accountant might consider, among other matters, whether: There is reason to be concerned that potentially relevant information might be missing from the facts and circumstances known to the accountant. There is an inconsistency between the known facts and circumstances and the accountant’s expectations. The accountant’s expertise and experience are sufficient to reach a conclusion. There is a need to consult with others with relevant expertise or experience. The information provides a reasonable basis on which to reach a conclusion. The accountant’s own preconception or bias might be affecting the accountant’s exercise of professional judgment. There might be other reasonable conclusions that could be reached from the available information.
+
+Slide 18: Exercise of Professional Judgement (Cont’d)
+Content: Reasonable and informed third party The reasonable and informed third party test is a consideration by the professional accountant about whether the same conclusions would likely be reached by another party. Such consideration is made from the perspective of a reasonable and informed third party, who weighs all the relevant facts and circumstances that the accountant knows, or could reasonably be expected to know, at the time the conclusions are made. The reasonable and informed third party does not need to be an accountant, but would possess the relevant knowledge and experience to understand and evaluate the appropriateness of the accountant’s conclusions in an impartial manner.
+
+Slide 19: 
+Content: Identifying Threats | Identifying threats is the first step in ethical decision-making. Without recognizing them, even well-intentioned professionals can make unethical choices..
+
+Slide 20: Identifying Threats to Compliance
+Content: Threats to compliance with the fundamental principles fall into one or more of the following categories: Self-interest threat – the threat that a financial or other interest will inappropriately influence a professional accountant’s judgment or behaviour; Self-review threat – the threat that a professional accountant will not appropriately evaluate the results of a previous judgment made; or an activity performed by the accountant, or by another individual within the accountant’s firm or employing organisation, on which the accountant will rely when forming a judgment as part of the performing a current activity; Advocacy threat – the threat that a professional accountant will promote a client’s or employing organisation’s position to the point that the accountant’s objectivity is compromised;
+
+Slide 21: Identifying Threats to Compliance
+Content: Threats to compliance with the fundamental principles fall into one or more of the following categories: Familiarity threat – the threat that due to a long or close relationship with a client, or employing organisation, a professional accountant will be too sympathetic to their interests or too accepting of their work; and Intimidation threat – the threat that a professional accountant will be deterred from acting objectively because of actual or perceived pressures, including attempts to exercise undue influence over the accountant.
+
+Slide 22: 
+Content: MAKING ETHICAL DECISIONS
+
+Slide 23: Framework for Evaluating Ethical Threats under the Code
+Content: Ethics Checklist
+
+Slide 24: Ethical Dilemmas
+Content: An ethical dilemma occurs when a professional faces a situation where there is no clear “right” or “wrong” answer, and they must make a choice between competing ethical principles or conflicting interests. These situations often involve pressure, ambiguity, or conflicting responsibilities that challenge a professional’s judgment. In any situation where a professional faces conflicting ethical demands, he/she must apply judgment, principles, and safeguards to choose the best possible course of action.
+
+Slide 25: 
+Content: GROUP WORK
+
+Slide 26: 
+Content: SAFEGUARDS | Mechanisms or actions professionals can use to protect themselves and their organization from ethical threats.
+
+Slide 27: HOW TO SAFEGUARD?
+Content: Which of these safeguards would you use in Case Study 1, 2, and 3? Why?
+
+Slide 28: 
+Content: ANY QUESTIONS ? | Email: shenal_rajakarunanayake@yahoo.com
+
